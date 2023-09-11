@@ -176,7 +176,7 @@ $(document).ready(function(){
                     <tr>
                         <th>#</th>
                         <th>Name <i class="fa fa-sort"></i></th>
-                        <th>Country <i class="fa fa-sort"></i></th>
+                        <th>Product <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
