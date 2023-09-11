@@ -18,7 +18,7 @@
                     @csrf
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
+                    <div class="card-header">Gambar produk</div>
                     <div class="card-body text-center">
                         <!-- Profile picture image-->
                         @if($product->image)
@@ -41,7 +41,7 @@
                         {{ session('failed_u') }}
                     </div>
                     @endif
-                    <div class="card-header">Account Details</div>
+                    <div class="card-header">Detail produk</div>
                     <div class="card-body">
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
