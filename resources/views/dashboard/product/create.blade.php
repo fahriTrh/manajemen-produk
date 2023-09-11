@@ -17,7 +17,7 @@
                 <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                  @csrf
                 <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
+                    <div class="card-header">Gambar produk</div>
                 <div class="card-body text-center">
                         <!-- Profile picture image-->
                         <img class="img-account-profile rounded-circle mb-2 img-preview" src="" alt="">
@@ -38,7 +38,7 @@
             <div class="col-xl-8">
                 <!-- Account details card-->
                 <div class="card mb-4">
-                    <div class="card-header">Account Details</div>
+                    <div class="card-header">Detail produk</div>
                     <div class="card-body">
                         @if(session()->has('failed'))
                         <div class="alert alert-danger" role="alert">
