@@ -131,11 +131,6 @@ table.table td i {
     font-size: 95%;
 }    
 </style>
-<script>
-$(document).ready(function(){
-	$('[data-toggle="tooltip"]').tooltip();
-});
-</script>
 </head>
 <body>
 <div class="container-xl">
@@ -187,12 +182,12 @@ $(document).ready(function(){
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->excerpt }}</td>
                         <td>
+                            <form class="formDlt" action="{{ route('product.delete', $product->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('delete')
                             <a href="{{ route('product.show', $product->id) }}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                             <a href="{{ route('product.edit', $product->id) }}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <form id="formDlt" action="{{ route('product.delete', $product->id) }}" method="POST" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <a href="#" id="delete" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a href="#" class="delete d-inline" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             </form>
                         </td>
                     </tr>
@@ -205,17 +200,16 @@ $(document).ready(function(){
 <script>
     $(document).ready(function () {
         $('#table').DataTable();
-
-        const deleteBtn = document.querySelector('#delete')
-        const formDlt = document.querySelector('#formDlt')
-
-        deleteBtn.addEventListener('click', function(e) {
-            e.preventDefault()
-            const confirm = window.confirm('apakah anda yakin?')
-
-            if (confirm) {
-                formDlt.submit()
-            }
+        const deleteBtn = document.querySelectorAll('.delete')
+        const formDlt = document.querySelector('.formDlt')
+        deleteBtn.forEach(btn => {
+                btn.addEventListener('click', function(btn) {
+                    btn.preventDefault()
+                    const confirm = window.confirm('apakah anda yakin?')
+                    if (confirm) {
+                        this.parentElement.submit()
+                    }
+                })
         })
     });
 </script>
